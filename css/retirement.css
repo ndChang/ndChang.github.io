@@ -1,0 +1,40 @@
+h1 {
+    text-align: center;
+}
+input{
+    margin-bottom: 15px;
+    padding: 10px;
+}
+p {
+    padding: 5px;
+    background: silver;
+    border-radius: 5px;
+    border: 1px solid black;
+    width: 90px;
+    text-align: center;
+}
+#saving-log {
+    width: 400px;
+    background: black;
+    height: 300px;
+    margin-bottom: 10px;
+}
+#saving-graph {
+    width: 400px;
+    background: grey;
+    height: 300px;
+}
+#container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+#user-info{
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+}
+#time {
+    margin-left: 25%;
+}
