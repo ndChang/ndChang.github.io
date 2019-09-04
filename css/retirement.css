@@ -1,28 +1,38 @@
+/* Mobile first design */
+body{
+    background: blanchedalmond;
+}
 h1 {
     text-align: center;
 }
-input{
-    margin-bottom: 15px;
-    padding: 10px;
-}
 p {
-    padding: 5px;
-    background: silver;
+    background: white;
+}
+.button {
+    padding: 20px;
+    font-size: 30px;
+    font-weight: bolder;
+    width: 180px;
     border-radius: 5px;
     border: 1px solid black;
-    width: 90px;
     text-align: center;
 }
+.submit-btn {
+    display: none;
+}
 #saving-log {
-    width: 400px;
-    background: black;
-    height: 300px;
+    width: 100%;
+    background: white;
+    border: 1px solid black;
+    max-height: 500px;
     margin-bottom: 10px;
+    flex-grow: 1;
+    overflow: auto;
 }
 #saving-graph {
-    width: 400px;
-    background: grey;
-    height: 300px;
+    width: 100%;
+    /* background: grey;
+    height: 500px; */
 }
 #container {
     display: flex;
@@ -35,6 +45,15 @@ p {
     flex-direction: column;
     align-content: center;
 }
+#user-info input {
+    padding: 30px;
+    margin-bottom: 15px;
+}
 #time {
-    margin-left: 25%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+#left {
+    width: 100%;
 }

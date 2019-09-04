@@ -8,7 +8,7 @@
     </head>
     <body>
         <h1>
-            How long until you're wealthy?
+            How Much Would You Have if You Saved Now?
         </h1>
         <div id="container">
             <div id="left">
@@ -16,21 +16,25 @@
                 <form id="user-info">
                     <!-- Current age of user -->
                     <input id="age" type="text" placeholder="Age"> 
+                    <input type="submit" value="Update" class="submit-btn">
                     <!-- Ideal retirement amount/target goal of investment -->
-                    <input id="wealth" type="text" placeholder="Wealth">
+                    <!-- <input id="wealth" type="text" placeholder="Wealth">
+                    <input type="submit" value="Update" class="submit-btn"> -->
                     <!-- Yearly Contribution -->
                     <input id="saving" type="text" placeholder="Saving">
+                    <input type="submit" value="Update" class="submit-btn">
                     <!-- Arbitrary percentage growth of user investments. No negative numbers. Intergers preferred but floats should be ideal -->
                     <input id="growth" type="text" placeholder="Interest Rate">
+                    <input type="submit" value="Update" class="submit-btn">
                 </form>
                 </h2>
                     <div id="time">
                     <!-- t value is increased in increments of 1 and 5  -->
                     <!-- button to call function. Increasing time by 1 -->
-                    <p id='addOne'>
+                    <p class="button" id='addOne'>
                         +1 Year</p>
                     <!-- button to call function. Increasing time by 1, 5 times -->
-                    <p id="addFive">
+                    <p class="button" id="addFive">
                         +5 Years</p>
                     <!-- t value -->
                     <!-- <h2 id="time">
@@ -41,10 +45,11 @@
             <div id="saving-log">
                     <!-- table to log the value as time increases -->
             </div>
-            <div id="saving-graph">
-
+            <div id="chartContainer" style="width:100%">
             </div>
         </div>
+        <!-- Chart Script -->
+        <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
         <!-- JavaScript/jQuery -->
         <script
         src="https://code.jquery.com/jquery-3.4.1.js"
