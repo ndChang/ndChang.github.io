@@ -1,63 +1,125 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <meta charset="utf-8">
-        <title>
-            Financial Health</title>
-        <link rel="stylesheet" href="css/retirement.css">
+        <link rel="stylesheet" href="css/reset.css">
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/index.css">
+        <title>Andrew's Page</title>
     </head>
     <body>
-        <h1>
-            How Much Would You Have if You Saved Now?
-        </h1>
-        <div id="container">
-            <div id="left">
-                <!-- User information to be used in calculations -->
-                <form id="user-info">
-                    <!-- Current age of user -->
-                    <input id="age" type="text" placeholder="Age"> 
-                    <input type="submit" value="Update" class="submit-btn">
-                    <!-- Ideal retirement amount/target goal of investment -->
-                    <!-- <input id="wealth" type="text" placeholder="Wealth">
-                    <input type="submit" value="Update" class="submit-btn"> -->
-                    <!-- Yearly Contribution -->
-                    <input id="saving" type="text" placeholder="Saving">
-                    <input type="submit" value="Update" class="submit-btn">
-                    <!-- Arbitrary percentage growth of user investments. No negative numbers. Intergers preferred but floats should be ideal -->
-                    <input id="growth" type="text" placeholder="Interest Rate">
-                    <input type="submit" value="Update" class="submit-btn">
-                </form>
-                </h2>
-                    <div id="time">
-                    <!-- t value is increased in increments of 1 and 5  -->
-                    <!-- button to call function. Increasing time by 1 -->
-                    <p class="button" id='addOne'>
-                        +1 Year</p>
-                    <!-- button to call function. Increasing time by 1, 5 times -->
-                    <p class="button" id="addFive">
-                        +5 Years</p>
-                    <!-- t value -->
-                    <!-- <h2 id="time">
-                    </h2> -->
-                </div>  
+        <!-- Container for sidebar and content -->
+        <div class="container">
+            <!-- Container for sidebar on left side flex column-->
+            <div class="left-sidebar">
+                <div class="left-sidebar sticky">
+                    <!-- Logo -->
+                    <img src="" alt="logo">
+                    <!-- navigation panel -->
+                    <ul class="navigation-bar">
+                        <li class="navigation-item modal-display">
+                            <a>
+                                about Me
+                            </a>
+                            <!-- <ul>
+                                <li>
+                                    <img alt="facebook">
+                                    <img alt="linkedin">
+                                </li>
+                            </ul> -->
+                        </li>
+                        <li class="navigation-item modal-display">
+                            <a>
+                                contact Me
+                            </a>
+                        </li>
+                        <li class="navigation-item">
+                            <h2>
+                                Portfolio
+                            </h2>
+                        </li>
+                        <li id="future-value-modal" class="navigation-item modal-display">
+                            Future Value Calculator
+                        </li>
+                        <li id="relaxr-modal" class="navigation-item modal-display">
+                            Relaxr
+                        </li>
+                        <li id="citipix-modal" class="navigation-item modal-display">
+                            Citipix
+                        </li>
+                    </ul>
+                </div>
+                <!-- navigation panel end -->
             </div>
-            <!-- Cash register type account of savings value along with growth at t[i] year -->
-            <div id="saving-log">
-                    <!-- table to log the value as time increases -->
-            </div>
-            <div id="chartContainer" style="width:100%">
+            <!-- Containter for sidebar on right side flex column -->
+            <div class="right">
+                <div class="right-content">
+                    <!-- Future Value Calculator Container-->
+                    <div id="calculator" class="overlay">
+                        <span class="close">&times;</span>
+                        <span class="title">Future Value</span>
+                        <div class="future-value-content">
+                            <!-- User information to be used in calculations -->
+                            <form id="user-info">
+                                    <!-- Current age of user -->
+                                    <input id="age" type="text" placeholder="Age"> 
+                                    <input type="submit" value="Update" class="submit-btn">
+                                    <!-- Yearly Contribution -->
+                                    <input id="saving" type="text" placeholder="Saving">
+                                    <input type="submit" value="Update" class="submit-btn">
+                                    <!-- Arbitrary percentage growth of user investments. No negative numbers. Intergers preferred but floats should be ideal -->
+                                    <input id="growth" type="text" placeholder="Interest Rate">
+                                    <input type="submit" value="Update" class="submit-btn">
+                                </form>
+                        <!-- Form End -->
+
+                            <!-- Cash register type account of savings value along with growth at t[i] year -->
+                            <div id="saving-log">
+                                <h3>
+                                    Savings Log
+                                </h3>
+                                <span>Age</span>      <span>Value</span>
+                                <!-- table to log the value as time increases -->
+                            </div>
+                            <div id="chartContainer" style="width:50%">
+                            </div>  
+                        </div>
+                    </div>
+                    <!-- Finavial Calculator End -->
+                
+                    <!-- Relaxr Blog -->
+
+                    <div id="relaxr" class="overlay">
+                        <span class="close">&times;</span>
+                        <span class="title">Blog</span>
+                        <div id="relaxr-content">
+                            <img src="images/relaxr-blog.png">
+                        </div>
+                    </div>
+    
+                    <!-- Citipix -->
+    
+                    <div id="citipix" class="overlay">
+                        <span class="close">&times;</span>
+                        <span class="title">Search</span>
+                        <div id="citipix-content">
+                            <img src="images/citipix.png">
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
+
         <!-- Chart Script -->
         <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+        
         <!-- JavaScript/jQuery -->
         <script
         src="https://code.jquery.com/jquery-3.4.1.js"
         integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
         crossorigin="anonymous">
         </script>
-              
-        <script src="js/retirement.js" type="application/javascript">
+            
+        <script src="js/index.js" type="application/javascript">
         </script>
     </body>
 </html>
