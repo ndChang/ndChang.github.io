@@ -53,27 +53,27 @@ function onReady() {
         }
         function futureCalculation() {
             let timeUntilRetirement = retirementAge - userAge;
+            //Data for graphs
+            const yaxis = [];
+            const xaxis = [];
             // userWealth = userSaving * (1 + userGrowth)**(timeUntilRetirement);
             for (let i = 0; i<=timeUntilRetirement; i++) {
                 const futureAge = [];
                 const futureWealth = [];
-                userWealth = userSaving * (1 + userGrowth)**(i);
+                let userInvestment = userSaving * (i + 1);
+                userWealth = userInvestment * (1 + userGrowth)**(i);
                 userWealth = parseFloat(userWealth).toFixed(2);
+                yaxis.push(userWealth);
                 futureAge[i] = i + userAge;
+                xaxis.push(futureAge[i])
                 futureWealth[i] = "$" + userWealth;
                 $('#saving-log').append('<p class="table">' + futureAge[i] +" "+ futureWealth[i] + '</p>');
                 // dataPoints.y = futureWealth[i]
-            }
-            console.log(futureAge, futureWealth);
+            } 
+            console.log(yaxis);
+            console.log(xaxis);
         }
-        // Datapoints for graph
-        let dataPoints = [];
-        // Constructor for Datapoints (y, futureWealth[i])
-        const dataPoint = function createDataPoint(y, futureWealth) {
-            let graphPoint = {
-                y: futureWealth,
-            }
-        }
+
         // line chart
         var chart = new CanvasJS.Chart("chartContainer", {
             animationEnabled: true,

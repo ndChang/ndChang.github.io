@@ -38,7 +38,7 @@
                             </h2>
                         </li>
                         <li id="future-value-modal" class="navigation-item modal-display">
-                            Future Value Calculator
+                            Retirement Calculator
                         </li>
                         <li id="relaxr-modal" class="navigation-item modal-display">
                             Relaxr
@@ -61,12 +61,21 @@
                             <!-- User information to be used in calculations -->
                             <form id="user-info">
                                     <!-- Current age of user -->
+                                    <H4>
+                                        Age:
+                                    </H4>
                                     <input id="age" type="text" placeholder="Age"> 
                                     <input type="submit" value="Update" class="submit-btn">
                                     <!-- Yearly Contribution -->
+                                    <h4>
+                                        Yearly Retirement Contribution:
+                                    </h4>
                                     <input id="saving" type="text" placeholder="Saving">
                                     <input type="submit" value="Update" class="submit-btn">
                                     <!-- Arbitrary percentage growth of user investments. No negative numbers. Intergers preferred but floats should be ideal -->
+                                    <h4>
+                                        Interest Rate:
+                                    </h4>
                                     <input id="growth" type="text" placeholder="Interest Rate">
                                     <input type="submit" value="Update" class="submit-btn">
                                 </form>
@@ -75,7 +84,7 @@
                             <!-- Cash register type account of savings value along with growth at t[i] year -->
                             <div id="saving-log">
                                 <h3>
-                                    Savings Log
+                                    Investment Log
                                 </h3>
                                 <span>Age</span>      <span>Value</span>
                                 <!-- table to log the value as time increases -->
