@@ -28,6 +28,8 @@ function onReady() {
         let userSaving;
         let userGrowth;
         let retirementAge = 65;
+        const yaxis = [];
+        const xaxis = [];
 
         function onAgeSubmit(event) {
             event.preventDefault();
@@ -54,8 +56,6 @@ function onReady() {
         function futureCalculation() {
             let timeUntilRetirement = retirementAge - userAge;
             //Data for graphs
-            const yaxis = [];
-            const xaxis = [];
             // userWealth = userSaving * (1 + userGrowth)**(timeUntilRetirement);
             for (let i = 0; i<=timeUntilRetirement; i++) {
                 const futureAge = [];
@@ -63,7 +63,10 @@ function onReady() {
                 let userInvestment = userSaving * (i + 1);
                 userWealth = userInvestment * (1 + userGrowth)**(i);
                 userWealth = parseFloat(userWealth).toFixed(2);
-                yaxis.push(userWealth);
+                // yaxis.push(userWealth);
+                let y = new yAxisPoints(userWealth);
+                console.log(y);
+                yaxis.push(y);
                 futureAge[i] = i + userAge;
                 xaxis.push(futureAge[i])
                 futureWealth[i] = "$" + userWealth;
@@ -72,6 +75,9 @@ function onReady() {
             } 
             console.log(yaxis);
             console.log(xaxis);
+        }
+        function yAxisPoints(userWealth) {
+            this.y = userWealth;
         }
 
         // line chart

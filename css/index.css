@@ -33,6 +33,15 @@ span {
   text-decoration: none;
   cursor: pointer;
 }
+
+/* Carousel */
+.carousel-inner > .item > img,
+.carousel-inner > .item > a > img {
+    width: 70%;
+    margin: auto;
+}
+
+
 .future-value-content {
     display: flex;
     flex-direction: row;
