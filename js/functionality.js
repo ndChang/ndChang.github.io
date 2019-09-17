@@ -36,11 +36,7 @@ function onReady() {
             userAge = parseInt($('#age').val());
             // console.log(userAge)
         }
-        function onWealthSubmit(event) {
-            event.preventDefault();
-            userWealth = parseInt($('#wealth').val());
-            // console.log(userWealth)
-        }
+
         function onSavingSubmit(event) {
             event.preventDefault();
             userSaving = parseInt($('#saving').val());
@@ -55,63 +51,55 @@ function onReady() {
         }
         function futureCalculation() {
             let timeUntilRetirement = retirementAge - userAge;
+
             //Data for graphs
-            // userWealth = userSaving * (1 + userGrowth)**(timeUntilRetirement);
             for (let i = 0; i<=timeUntilRetirement; i++) {
                 const futureAge = [];
                 const futureWealth = [];
                 let userInvestment = userSaving * (i + 1);
                 userWealth = userInvestment * (1 + userGrowth)**(i);
-                userWealth = parseFloat(userWealth).toFixed(2);
-                // yaxis.push(userWealth);
-                let y = new yAxisPoints(userWealth);
-                console.log(y);
+                userWealth = parseFloat(parseFloat(userWealth).toFixed(2));
+
+                let y = userWealth;
+
                 yaxis.push(y);
                 futureAge[i] = i + userAge;
-                xaxis.push(futureAge[i])
+                let x = futureAge[i];
+
+                xaxis.push(x);
                 futureWealth[i] = "$" + userWealth;
                 $('#saving-log').append('<p class="table">' + futureAge[i] +" "+ futureWealth[i] + '</p>');
-                // dataPoints.y = futureWealth[i]
+
             } 
-            console.log(yaxis);
-            console.log(xaxis);
+
+            console.log(yaxis.map((ypoint, index) => ({x: xaxis[index], y: yaxis[index]})))
+
+            var chart = new CanvasJS.Chart("chartContainer", {
+                animationEnabled: true,
+                theme: "light2",
+                title:{
+                    text: "Retirement Savings"
+                },
+                axisY:{
+                    includeZero: false
+                },
+                data: [{        
+                    type: "line",       
+                    dataPoints: yaxis.map((ypoint, index) => ({x: xaxis[index], y: yaxis[index]})),
+                }]
+            });
+            chart.render();
         }
+
+        // Axis Points
         function yAxisPoints(userWealth) {
             this.y = userWealth;
         }
-
-        // line chart
-        var chart = new CanvasJS.Chart("chartContainer", {
-            animationEnabled: true,
-            theme: "light2",
-            title:{
-                text: "Simple Line Chart"
-            },
-            axisY:{
-                includeZero: false
-            },
-            data: [{        
-                type: "line",       
-                dataPoints: [
-                    { y: 450 },
-                    { y: 414},
-                    { y: 520, indexLabel: "highest",markerColor: "red", markerType: "triangle" },
-                    { y: 460 },
-                    { y: 450 },
-                    { y: 500 },
-                    { y: 480 },
-                    { y: 480 },
-                    { y: 410 , indexLabel: "lowest",markerColor: "DarkSlateGrey", markerType: "cross" },
-                    { y: 500 },
-                    { y: 480 },
-                    { y: 510 }
-                ]
-            }]
-        });
-        chart.render();
+        function xAxisPoints(futureAge) {
+            this.x = futureAge;
+        }
 
         $('#user-info').submit(onAgeSubmit);
-        $('#user-info').submit(onWealthSubmit);
         $('#user-info').submit(onSavingSubmit);
         $('#user-info').submit(onGrowthSubmit);
 
