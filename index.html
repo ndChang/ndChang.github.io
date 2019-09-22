@@ -1,129 +1,159 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang='en'>
     <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Window Style</title>
+
         <link rel="stylesheet" href="css/reset.css">
         <link rel="stylesheet" href="css/normalize.css">
-        <link rel="stylesheet" href="css/index.css">
-        <title>Andrew's Page</title>
+        <link rel='stylesheet' href='css/index.css'>
     </head>
     <body>
-        <!-- Container for sidebar and content -->
-        <div class="container">
-            <!-- Container for sidebar on left side flex column-->
-            <div class="left-sidebar">
-                <div class="left-sidebar sticky">
-                    <!-- Logo -->
-                    <img src="" alt="logo">
-                    <!-- navigation panel -->
-                    <ul class="navigation-bar">
-                        <li class="navigation-item modal-display">
-                            <a>
-                                about Me
-                            </a>
-                            <!-- <ul>
-                                <li>
-                                    <img alt="facebook">
-                                    <img alt="linkedin">
-                                </li>
-                            </ul> -->
-                        </li>
-                        <li class="navigation-item modal-display">
-                            <a>
-                                contact Me
-                            </a>
-                        </li>
-                        <li class="navigation-item">
-                            <h2>
-                                Portfolio
-                            </h2>
-                        </li>
-                        <li id="future-value-modal" class="navigation-item modal-display">
-                            Retirement Calculator
-                        </li>
-                        <li id="relaxr-modal" class="navigation-item modal-display">
-                            Relaxr
-                        </li>
-                        <li id="citipix-modal" class="navigation-item modal-display">
-                            Citipix
-                        </li>
-                    </ul>
-                </div>
-                <!-- navigation panel end -->
-            </div>
-            <!-- Containter for sidebar on right side flex column -->
-            <div class="right">
-                <div class="right-content">
-                    <!-- Future Value Calculator Container-->
-                    <div id="calculator" class="overlay">
-                        <span class="close">&times;</span>
-                        <span class="title">Future Value</span>
-                        <div class="future-value-content">
-                            <!-- User information to be used in calculations -->
-                            <form id="user-info">
-                                    <!-- Current age of user -->
-                                    <H4>
-                                        Age:
-                                    </H4>
-                                    <input id="age" type="text" placeholder="Age"> 
-                                    <input type="submit" value="Update" class="submit-btn">
-                                    <!-- Yearly Contribution -->
-                                    <h4>
-                                        Yearly Retirement Contribution:
-                                    </h4>
-                                    <input id="saving" type="text" placeholder="Saving">
-                                    <input type="submit" value="Update" class="submit-btn">
-                                    <!-- Arbitrary percentage growth of user investments. No negative numbers. Intergers preferred but floats should be ideal -->
-                                    <h4>
-                                        Interest Rate:
-                                    </h4>
-                                    <input id="growth" type="text" placeholder="Interest Rate">
-                                    <input type="submit" value="Update" class="submit-btn">
-                                </form>
-                        <!-- Form End -->
 
-                            <!-- Cash register type account of savings value along with growth at t[i] year -->
-                            <div id="saving-log">
-                                <h3>
-                                    Investment Log
-                                </h3>
-                                <span>Age</span>      <span>Value</span>
-                                <!-- table to log the value as time increases -->
-                            </div>
-                            <div id="chartContainer" style="width:50%">
-                                
-                            </div>  
-                        </div>
-                    </div>
-                    <!-- Finavial Calculator End -->
+        <!-- SET SIZE OF PAGE TO USER BROWSER SIZE -->
+        <div class='viewport'>
+            <div class='main'>
+
+                <img class='desktop icon calculator-icon' src='' alt='calculator'>
+                <img class='desktop icon internet-icon' src='' alt='internet-icon'>
                 
-                    <!-- Relaxr Blog -->
-                    
-                    <div id="relaxr" class="overlay">
-                        <span class="close">&times;</span>
-                        <span class="title">Blog</span>
-                        <div id="relaxr-content">
-                            <img src="images/relaxr-blog.png">
-                     
+                <div id='calculator' class='overlay'>
+                    <div class='heading'>
+                        <a class="window close">&times;</a>
+                        <a class="title">Calculator - Retirement</a>
+                        
+                    </div>
+                    <div class='future-value-content'>
+
+                        <!-- USER FORM -->
+                        <form id='user-info'>
+
+
+                            <!-- Current age of user -->
+                            <h4>
+                                Age:
+                            </h4>
+                            <input id='age' type='text' placeholder='Enter your age here.'>
+                            <input type='submit' value='update' class='submit-btn'>
+
+
+                            <!-- Yearly Contribution to Savings -->
+                            <h4>
+                                Yearly Retirement Contribution:
+                            </h4>
+                            <input id='saving' type='text' placeholder='Enter a number here under 65.'>
+                            <input type='submit' value='update' class='submit-btn'>
+
+
+                            <!-- Yearly growth of funds -->
+                            <h4>
+                                Interest Rate:
+                            </h4>
+                            <input id='growth' type='text' placeholder='Enter a number here.'>
+                            <input type='submit' value='update' class='submit-btn'>
+
+
+                        </form>
+
+                        <!-- Table to log investment growth -->
+                
+                        <div id="saving-log">
+    
+                            <h3>
+                                Investment Log
+                            </h3>
+
+                            <table id="log">
+                                <tr>
+                                    <th>Age</th>
+                                    <th>Value</th>
+                                    <th>Initial Investment</th>
+                                    <th>Difference</th>
+                                </tr>
+                            </table>
 
                         </div>
-                    </div>
-    
-                    <!-- Citipix -->
-    
-                    <div id="citipix" class="overlay">
-                        <span class="close">&times;</span>
-                        <span class="title">Search</span>
-                        <div id="citipix-content">
-                            <img src="images/citipix.png">
+
+                        <!-- Render Chart to display -->
+
+                        <div id="chartContainer" style="width:50%">
+                                
                         </div>
+
                     </div>
                 </div>
+
+                <!-- Relaxr Blog -->
+                    
+                <div id="relaxr" class="overlay">
+                    <!-- <span class="close">&times;</span>
+                    <span class="title">Internet Explorer - Relaxr</span> -->
+                    <div class='heading'>
+                        <a class="window close">&times;</a>
+                        <a class="title">Internet Explorer - Relaxr</a>
+                        
+                    </div>
+                    <div id="relaxr-content">
+                        <img id='relaxr-img' src="images/relaxr_landing.jpg">
+                    
+
+                    </div>
+                </div>
+
             </div>
+            
+            <footer>
+                <div class="dashboard">
+                    <div class='content'>
+                        <img class='close logo-icon' src='' alt='icon'>
+                    </div>
+
+
+                    <img class='icon phoneNumber-icon' src='' alt='phone'>
+                    
+
+                    <img class='icon email-icon' src='' alt='email'>
+
+
+                    <div class='content'>
+                        <img class='icon calculator-icon' src='' alt='calculator'>
+                    </div>
+                    <div class='content'>
+                        <img class='icon internet-icon' src='' alt='internet-icon'>
+                    </div>
+
+
+                    
+                    <!-- <li class='launchpad'>
+                        <a>Contact Me</a>
+                        <a>About Me</a>
+                        <ol>Portfolio >
+                            <li>Retirement Calculator</li>
+                            <li>Relaxr Blog</li>
+                            <li>Citipix Search</li>
+                        </ol>
+                    </li> -->
+                </div>
+            
+                <div id="clock">
+                    <p id="date"></p>
+                    <p class="unit" id="hours"></p>
+                    <p class="unit">:</p>
+                    <p class="unit" id="minutes"></p>
+                    <p class="unit">:</p>
+                    <p class="unit" id="seconds"></p>
+                    <p class="unit" id="ampm"></p>
+                </div>
+                
+            </footer>
+
+
+
         </div>
 
         <!-- Chart Script -->
         <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
-        
+
         <!-- JavaScript/jQuery -->
         <script
         src="https://code.jquery.com/jquery-3.4.1.js"
@@ -131,10 +161,8 @@
         crossorigin="anonymous">
         </script>
 
-        <!-- Carousel Script -->
-         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-
-        <script src="js/functionality.js" type="application/javascript">
-        </script>
+        <!-- Javescript File -->
+        <script src="js/index.js" type="application/javascript"></script>
+    
     </body>
 </html>
